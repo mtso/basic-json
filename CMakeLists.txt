@@ -31,6 +31,8 @@ endif()
 
 add_subdirectory(opt)
 
-add_executable(main main.cpp)
+FILE(GLOB SOURCE_FILES ${CMAKE_SOURCE_DIR}/*.h ${CMAKE_SOURCE_DIR}/*.cpp)
+
+add_executable(main ${SOURCE_FILES})
 target_link_libraries(main ${CPR_LIBRARIES})
-include_directories(${CPR_INCLUDE_DIRS} ${JSON_INCLUDE_DIRS})
+include_directories(${CPR_INCLUDE_DIRS} ${JSON_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR})
